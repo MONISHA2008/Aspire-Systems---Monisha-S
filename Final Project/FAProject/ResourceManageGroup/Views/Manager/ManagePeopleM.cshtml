@@ -1,0 +1,149 @@
+@model List<ResourceManageGroup.Models.Employee>
+@{
+    ViewData["Title"] = "People";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Resource Manage Group</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/sample.styles.css" asp-append-version="true" />
+    <style>
+    img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .title {
+    font-family: "Arial", sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    color: #ffffff;
+    background-color: #b834c4;
+    padding: 5px;
+    border-radius: 0px;
+    
+    }
+
+    .table {
+        width: 80%;
+        margin: 0 auto;
+        box-shadow: 0 0 10px #b834c4(0, 0, 0, 0.3);
+    }
+    
+    .table thead tr {
+    background-color: #fff; 
+    border: 1px solid #000000; 
+    }
+
+    
+    .table thead td {
+    padding: 8px;
+    border: 1px solid #000000; 
+    text-align: center;
+    background-color: #b834c4; 
+    color: white;
+    }
+
+    
+    .table tbody tr {
+    background-color: #fff; 
+    border: 1px solid #000000; 
+    }
+
+    .table tbody td {
+    padding: 8px;
+    text-align: center;
+    background-color:  rgb(238, 192, 238);
+    color: #000000;
+    border: 1px solid #000000; 
+    }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light ">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                     <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Manager" asp-action="ProjectListM">Project List</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="collapse navbar-collapse d-sm-inline-flex justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Manager" asp-action="LogoutM">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div>
+        <div class="title">Team Members</div>
+        <br>
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>Id</td>
+                    <td>Image</td>
+                    <td>Name</td>
+                    <td>Domain</td>
+                    <td>Assign Leader</td>
+                    <td>Remove</td>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.EmployeeId</td>
+                            <td>@if(@item.EmployeeImage != null)
+                                {
+                                    <img src="@Url.Action("GetImage", "Manager", new { id = @item.EmployeeId })" alt="img">
+                                }
+                                else
+                                {
+                                    <img src="~/images/image.jpg" alt="default-img">
+                                }
+                            </td>
+                            <td>@item.EmployeeName</td>
+                            <td>@item.EmployeeTechnology</td>
+                            <td><a class="nav-link text-dark" asp-route-id="@item.EmployeeId" asp-controller="Manager" asp-action="AssignLeaderM">Assign as Leader</a></td>
+                            <td><a class="nav-link text-dark" asp-route-id="@item.EmployeeId" asp-controller="Manager" asp-action="RemovePeopleM">Remove from Project</a></td>
+                        </tr> 
+                    }
+                }
+                
+            </tbody>
+        </table>
+        <table class="table">
+                <tbody>
+                    <tr>
+                        <td><a class="nav-link text-dark" asp-route-id=" " asp-controller="Manager" asp-action="AddPeopleM">Add People</a></td>
+                    </tr>
+                </tbody>
+        </table>
+    </div>
+    <br>
+    <footer>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <p align="center">© Copyrights 2023 Resource Manage Group</p>
+            </div>
+        </nav>
+    </footer>
+</body>
+</html>

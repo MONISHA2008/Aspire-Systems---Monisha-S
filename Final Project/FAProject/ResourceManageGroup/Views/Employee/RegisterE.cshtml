@@ -1,0 +1,118 @@
+@model ResourceManageGroup.Models.Employee
+
+@{
+    ViewData["Title"] = "Register";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"] - Resource Manage Group</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/tt.css" type="text/css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <style>
+        form {
+            margin: auto;
+            width: 70%;
+            text-align: center;
+        }
+        label {
+            display: inline-block;
+            width: 120px;
+            text-align: left;
+        }
+        select {
+            display: inline-block;
+            width: 200px;
+            margin-bottom: 10px;
+        }
+
+        .submit {
+            margin-top: 10px;
+        }
+
+    </style>
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid" >
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                     <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Employee" asp-action="LoginE">Login - Employee</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="title">Registration</div>
+    <form method="post">
+        <div class="mb-1 row">
+            <label asp-for="EmployeeName" class="col-sm-2 col-form-label">Name</label>
+            <div class="form-group">
+                <input asp-for="EmployeeName" type="text" class="form-control" id="Name"  required>
+                <span asp-validation-for="EmployeeName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="mb-1 row">
+            <label asp-for="EmployeeEmail" class="col-sm-2 col-form-label">E-Mail</label>
+            <div class="form-group">
+                <input asp-for="EmployeeEmail" type="email" class="form-control" id="Email"  required>
+                <span asp-validation-for="EmployeeEmail" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="mb-1 row">
+            <label asp-for="EmployeeNumber" class="col-sm-2 col-form-label">Contact Number</label>
+            <div class="form-group">
+                <input asp-for="EmployeeNumber" type="phonenumber" class="form-control" id="Number" required>
+                <span asp-validation-for="EmployeeNumber" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="mb-1 row">
+            <label asp-for="DateOfBirth" class="col-sm-2 col-form-label">Date Of Birth</label>
+            <div class="form-group">
+                <input asp-for="DateOfBirth" type="date" class="form-control" id="DOB" required>
+                <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="mb-1 row">
+            <label asp-for="EmployeePassword" class="col-sm-2 col-form-label">Set Your Password</label>
+            <div class="form-group">
+                <input asp-for="EmployeePassword" type="password" class="form-control" id="Password"   required>
+                <span asp-validation-for="EmployeePassword" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="mb-1 row">
+            <label asp-for="EmployeeConfirmPassword" class="col-sm-2 col-form-label">Confirm Password</label>
+            <div class="form-group">
+                <input asp-for="EmployeeConfirmPassword" type="password" class="form-control" id="Password"  required>
+                <span asp-validation-for="EmployeeConfirmPassword" class="text-danger"></span>
+            </div>
+        </div>
+        <div>
+	        <button type="submit" class="btn btn-primary rounded submit p-2 px-3">Sign Up </button>
+	    </div>
+        <div class="form-group">
+            <h6 class="text-center mb-4">@ViewData["Message"]</h6>
+	    </div>
+    </form>
+    <footer>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <p align="center">© Copyrights 2023 Resource Manage Group</p>
+            </div>
+        </nav>
+    </footer>
+</body>
+</html>
+

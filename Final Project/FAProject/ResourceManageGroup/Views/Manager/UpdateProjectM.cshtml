@@ -1,0 +1,120 @@
+@model ResourceManageGroup.Models.Project
+@{
+    ViewData["Title"] = "Update Project";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Resource Manage Group</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/sample.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/tt.css" type="text/css" />
+    <style>
+        label {
+            display: inline-block;
+            width: 120px;
+            text-align:left;
+        }
+        form {
+            margin: auto;
+            width: 70%;
+            text-align: center;
+        }
+        form button {
+            background-color: #b834c4;
+        }
+        select {
+            display: inline-block;
+            width: 200px;
+            margin-bottom: 10px;
+        }
+
+        .submit {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light ">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                     <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Manager" asp-action="ProjectListM">Project List</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="collapse navbar-collapse d-sm-inline-flex justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Manager" asp-action="LogoutM">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div>
+        <div class="title">Update Project Details</div>
+        <br>
+        <form method="post" asp-action="UpdateProjectM" asp-area="Manager">
+            <input type="hidden" asp-for="project_id">
+            <div class="mb-1 row">
+            <label asp-for="project_name" class="col-sm-2 col-form-label">Project Name:</label>
+            <div class="form-group">
+                <input asp-for="project_name" type="text" id="project_name" class="form-control">
+                <span asp-validation-for="project_name" class="text-danger"></span>
+            </div>
+            </div>
+            <div class="mb-1 row">
+            <label asp-for="project_description" class="col-sm-2 col-form-label">Project Description:</label>
+            <div class="form-group">
+                <input asp-for="project_description" type="text" id="project_description" class="form-control">
+                <span asp-validation-for="project_description" class="text-danger"></span>
+            </div>
+            </div>
+            <div class="mb-1 row">
+            <label asp-for="project_type" class="col-sm-2 col-form-label">Application Type:</label>
+                <div class="form-group">
+                        <select asp-for="project_type" type="text" class="form-control" id="project_type" required>
+                            @foreach (var item in ViewBag.list)
+                            {
+                                <option value="@item">@item</option>
+                            }
+                        </select>
+                </div>
+            </div>
+            <div class="mb-1 row">
+            <label asp-for="project_start_time" class="col-sm-2 col-form-label">Start Date/Time:</label>
+            <div class="form-group">
+                <input asp-for="project_start_time" type="date" id="project_start_time" class="form-control">
+                <span asp-validation-for="project_start_time" class="text-danger"></span>
+            </div>
+            </div>
+            <div class="mb-1 row">
+            <label asp-for="project_end_time" class="col-sm-2 col-form-label">End Date/Time:</label>
+            <div class="form-group">
+                <input asp-for="project_end_time" type="date" id="project_end_time" class="form-control">
+                <span asp-validation-for="project_end_time" class="text-danger"></span>
+            </div>
+            </div>
+            <button align="center" type="submit" class="btn btn-primary rounded submit p-2 px-3" id="submitbutton" value="Save">Submit</button>
+        </form>
+    </div>
+    <br>
+    <footer>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <p align="center">© Copyrights 2023 Resource Manage Group</p>
+            </div>
+        </nav>
+    </footer>
+</body>
+</html>

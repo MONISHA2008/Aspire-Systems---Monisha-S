@@ -1,0 +1,148 @@
+@model List<ResourceManageGroup.Models.Project>
+@{
+    ViewData["Title"] = "Project List";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Resource Manage Group</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/sample.styles.css" asp-append-version="true" />
+    <style>
+    .title {
+    font-family: "Arial", sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    color: #ffffff;
+    background-color: #b834c4;
+    padding: 5px;
+    border-radius: 0px;
+    
+    }
+
+    .table {
+        width: 80%;
+        margin: 0 auto;
+        box-shadow: 0 0 10px #b834c4(0, 0, 0, 0.3);
+    }
+    
+    .table thead tr {
+    background-color: #fff; 
+    border: 1px solid #000000; 
+    }
+
+    
+    .table thead td {
+    padding: 8px;
+    border: 1px solid #000000; 
+    text-align: center;
+    background-color: #b834c4; 
+    color: white;
+    }
+
+    
+    .table tbody tr {
+    background-color: #fff; 
+    border: 1px solid #000000; 
+    }
+
+    .table tbody td {
+    padding: 8px;
+    text-align: justify;
+    background-color:  rgb(238, 192, 238);
+    color: #000000;
+    border: 1px solid #000000; 
+    }
+
+    table tr th:nth-child(1),
+    table tr td:nth-child(1) {
+    width: 85px;
+    }
+
+    
+
+    table tr th:nth-child(4),
+    table tr td:nth-child(4) {
+    width: 140px;
+    }
+    </style>
+
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                     <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Manager" asp-action="ProjectListM">Project List</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="collapse navbar-collapse d-sm-inline-flex justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Manager" asp-action="LogoutM">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div>
+        <div class="title">Project List</div>
+        <br>
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>Project Id</td>
+                    <td>Project Name</td>
+                    <td>Project Description</td>
+                    <td>Project Details</td>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.project_id</td>
+                            <td>@item.project_name</td>
+                            <td>@item.project_description</td>
+                            <td><a class="nav-link text-dark" asp-route-id="@item.project_id" asp-controller="Manager" asp-action="ManageProjectM"> View </a></td>
+                        </tr> 
+                    }
+                }
+                else
+                {
+                    <p>No items to display.</p>
+                }
+            </tbody>
+        </table>
+        <table class="table">
+                <tbody>
+                    <tr>
+                        <td><a class="nav-link text-dark" asp-route-id=" " asp-controller="Manager" asp-action="AddProjectM">Add Project</a></td>
+                    </tr>
+                </tbody>
+        </table>
+    </div>
+    <br>
+    <footer>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <p align="center">© Copyrights 2023 Resource Manage Group</p>
+            </div>
+        </nav>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,137 @@
+@model ResourceManageGroup.Models.Employee
+
+@{
+    ViewData["Title"] = "Employee Details";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Resource Manage Group</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/tt.css" type="text/css" />
+    <style>
+        img {
+        width: 200px;
+        height: 200px;
+        }
+        nav img {
+        width: 35px;
+        height: 30px;
+        }
+        <style>
+    header .navbar-nav li a {
+        background-color: blue;
+        color: white;
+    }
+</style>
+    
+    
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                     <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Employee" asp-action="EmployeeViewE">Employee Details</a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="collapse navbar-collapse d-sm-inline-flex justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                    @if(@Model.EmployeeImage != null)
+                    {
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="@Url.Action("GetImage", "Recruiter", new { id = @Model.EmployeeId })" alt="navimg" onclick="showDropdown()">
+                        </a>
+                    }
+                    else{
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="~/images/image.jpg" alt="default-img" onclick="showDropdown()">
+                        </a>
+                    }
+                    <div class="dropdown-menu" id="dropdownMenu" aria-labelledby="navbarDropdown">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Employee" asp-action="LogoutE">Logout</a>
+                    </div>
+                    </li>
+                </ul>
+                </div>
+
+                <script>
+                function showDropdown() {
+                    document.getElementById("dropdownMenu").classList.toggle("show");
+                }
+                </script>
+            </div>
+        </nav>
+    </header>
+    <div>
+        <div class="title">Employee Details</div>
+        <br>
+        <form method="post" asp-action="ViewDetails" asp-area="Employee">
+            <input type="hidden" asp-for="EmployeeId">
+        <div class="container">
+        <div class="profile">
+        <div>
+            @if(@Model.EmployeeImage != null)
+            {
+                <img src="@Url.Action("GetImage", "Recruiter", new { id = @Model.EmployeeId })" alt="img">
+            }
+            else
+            {
+                <img src="~/images/image.jpg" alt="default-img">
+            }
+        </div>
+        <div style="font-style: italic;" class="text"><h3 >@Model.EmployeeName</h3></div>
+            <h5 class="role">Employee</h5>
+        </div>
+        <div class="content">
+                <ul>
+                    <li>Employee ID: <span>@Model.EmployeeId</span></li>
+                    <li>Employee E-mail: <span>@Model.EmployeeEmail</span></li>
+                    <li>Contact Number: <span>@Model.EmployeeNumber</span></li>
+                    @if(@Model.EmployeeTechnology!="Not Assigned"){
+                    <li>Technology: <span>@Model.EmployeeTechnology</span></li>
+                    }
+                    @if(@Model.EmployeeWorkingStatus!="Not Assigned"){
+                    <li>Working Status: <span>@Model.EmployeeWorkingStatus</span></li>
+                    }
+                    @if(@Model.EmployeeProject!="Not Assigned"){
+                    <li>Project: <span>@Model.EmployeeProject</span></li>
+                    }
+                    @if(@Model.EmployeeTrainerName!="Not Assigned"){
+                    <li>Trainer Name: <span>@Model.EmployeeTrainerName</span></li>
+                    }
+                    @if(@Model.EmployeeTrainingStartTime!="Not Assigned" && @Model.EmployeeTrainingEndTime!="Not Assigned"){
+                    <li>Training Period: <span>@Model.EmployeeTrainingStartTime to @Model.EmployeeTrainingEndTime</span></li>
+                    }
+                </ul>
+        </div>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td><a class="nav-link text-dark" asp-route-id="@Model.EmployeeId" asp-controller="Employee" asp-action="EditEmployeeE">Update Personal Details</a></td>
+                        <td><a class="nav-link text-dark" asp-route-id="@Model.EmployeeId" asp-controller="Employee" asp-action="VacationRequestE">Vacation Requests</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+    <footer>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <p align="center">© Copyrights 2023 Resource Manage Group</p>
+            </div>
+        </nav>
+    </footer>
+</body>
+</html>

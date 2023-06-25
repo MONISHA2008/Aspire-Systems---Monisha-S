@@ -1,0 +1,30 @@
+06.09.2022--00PS-object,class
+07.09.2022-Encapsulation
+08.09.2022-Inheritance
+09.09.2022-polymorphism
+12.09.2022-
+13.09.2022- OOPS, SDLC
+14.09.2022- C#, dotnet frameworks
+15.09.2022- DOTNET frameworks
+16.09.2022- brush up
+19.09.2022- access specifiers in c#
+21.09.2022- managed code and unmanaged code in c#
+22.09.2022-JIT compiler
+23.09.2022- static keyword
+
+28.09.2022- encapsulation and abstraction prgm
+
+30.09.2022- abstraction la variables access, internal keyword in abstraction, ReadOnly, static
+03.10.2022- inheritance
+06.10.2022- same single iheritance and inheritance supported by c#
+
+11.10.2022- nullable keyword
+
+13.10.2022- 
+
+18.10.2022- Polymorphism, types and realtime examples
+
+
+04.01.2023- arraylist to array, reverse, sort, remove , all collections
+05.01.2023- exception handling
+06.01.2023- checked and unchecked, how many catch block

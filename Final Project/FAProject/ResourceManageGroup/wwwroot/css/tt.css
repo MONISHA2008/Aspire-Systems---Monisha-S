@@ -1,0 +1,46 @@
+    .title {
+    font-family: "Arial", sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    color: #ffffff;
+    background-color: #b834c4;
+    padding: 5px;
+    border-radius: 0px;
+    
+    }
+
+    .table {
+        width: 80%;
+        margin: 0 auto;
+        box-shadow: 0 0 10px #b834c4(0, 0, 0, 0.3);
+    }
+    
+    .table thead tr {
+    background-color: #fff; 
+    border: 1px solid #000000; 
+    }
+
+    
+    .table thead td {
+    padding: 8px;
+    border: 1px solid #000000; 
+    text-align: center;
+    background-color: #b834c4; 
+    color: white;
+    }
+
+    
+    .table tbody tr {
+    background-color: #fff; 
+    border: 1px solid #000000; 
+    }
+
+    .table tbody td {
+    padding: 8px;
+    text-align: center;
+    background-color:  rgb(238, 192, 238);
+    color: #000000;
+    border: 1px solid #000000; 
+    }

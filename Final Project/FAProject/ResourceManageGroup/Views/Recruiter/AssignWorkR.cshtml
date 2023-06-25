@@ -1,0 +1,70 @@
+@model ResourceManageGroup.Models.Employee
+@{
+    ViewData["Title"] = "Assign to Work - Project";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Resource Manage Group</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/sample.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/tt.css" type="text/css" />
+    <style>
+        form {
+            margin: auto;
+            width: 70%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                     <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Recruiter" asp-action="EmployeeListR">Employee List</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Recruiter" asp-action="VacationReqListR">Vacation Request</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="collapse navbar-collapse d-sm-inline-flex justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Recruiter" asp-action="LogoutR">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <div class="title">Move To Project</div>
+    <br>
+                        <form method="post" asp-action="AssignWorkR" asp-area="Recruiter">
+                            <input type="hidden" asp-for="EmployeeId">
+                            <div class="form-group">
+                                <button type="submit" align="center" class="btn btn-primary rounded submit p-2 px-3" >Submit</button>
+                            </div>
+                        </form>
+        
+        
+    <br>
+    <footer>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <p align="center">© Copyrights 2023 Resource Manage Group</p>
+            </div>
+        </nav>
+    </footer>
+</body>
+</html>

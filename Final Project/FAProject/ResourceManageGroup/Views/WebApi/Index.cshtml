@@ -1,0 +1,48 @@
+@model List<ResourceManageGroup.Models.WebApi>
+@{
+    ViewData["Title"] = "WEB Api";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Resource Manage Group</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/sample.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/tt.css" type="text/css" />
+</head>
+<body>
+    <div class="title">Employee Sample List</div>
+        <br>
+        
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>Employee Id</td>
+                    <td>Employee Name</td>
+                    <td>Employee Age</td>
+                    <td>Employee Salary</td>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.EmployeeId</td>
+                            <td>@item.EmployeeName</td>
+                            <td>@item.EmployeeAge</td>
+                            <td>@item.EmployeeSalary</td>
+                        </tr> 
+                    }
+                }
+            </tbody>
+
+            
+            
+        </table>
+</body>
+</html>

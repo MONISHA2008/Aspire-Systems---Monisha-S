@@ -1,0 +1,12 @@
+@{
+    Layout = "_Layout";
+    var statusCode = ViewBag.StatusCode;
+    var errorMessage = ViewBag.ErrorMessage;
+    var originalPath = ViewBag.OriginalPath;
+    var originalQueryString = ViewBag.OriginalQueryString;
+}
+
+<h1>Error @statusCode</h1>
+<p>@errorMessage</p>
+<p>Original Path: @originalPath</p>
+<p>Original Query String: @originalQueryString</p>

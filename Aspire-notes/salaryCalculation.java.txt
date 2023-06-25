@@ -1,0 +1,26 @@
+
+*\ 
+1.description of the project
+2.author name
+3.created on
+4.modified on
+5.reviewed by
+6.reviewed on
+\*
+class SalaryCalculation
+{
+    
+    public void calculate()
+    {
+        int salary=10000;
+        System.out.println("Salary is "+salary);
+    }
+
+    public static void main(string args[])
+     {
+        SalaryCalculation salaryCalculation=new SalaryCalculation();
+        salaryCalculation=calculate();
+     }
+
+    
+}

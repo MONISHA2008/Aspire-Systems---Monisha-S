@@ -1,0 +1,162 @@
+@{
+    ViewData["Title"] = "RMG";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Resource Manage Group</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/sample.styles.css" asp-append-version="true" />
+    <style>
+    
+    footer {
+      position: fixed;
+      bottom: 0;
+      background-color: rgb(238, 192, 238);
+      height: 50px;
+      width: 100%; 
+    }
+    body {
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    .front-img-module {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 520px;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url("https://thumbs.dreamstime.com/b/human-resources-hr-management-recruitment-employment-headhunting-concept-human-resources-hr-management-recruitment-employment-122402796.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .front-img-module h1 {
+      font-family: sans-serif;
+      font-size: 60px;
+      color: #fff;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin: 0;
+    }
+    table {
+      table-layout: fixed;
+      width: 100%; /* Optional: Set the table width */
+    }
+
+    th, td {
+      padding: 10px; /* Optional: Set the padding for table cells */
+    }
+
+    
+
+    .front-img-module p {
+      font-size: 20px;
+      color: #d1d1d1;
+      text-transform: uppercase;
+      margin: 20px 0;
+    }
+
+    .front-img-module button {
+      background-color: #5edaf0;
+      color: #000;
+      padding: 10px 25px;
+      border: none;
+      border-radius: 5px;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.4)
+    }
+
+    .modules-list {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 40px 80px;
+    }
+
+    .modules-list .module {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0 40px;
+    }
+
+    .modules-list .module i {
+      width: fit-content;
+      font-size: 50px;
+      color: #333333;
+      border-radius: 50%;
+      border: 2px solid #333333;
+      padding: 12px;
+    }
+
+    .modules-list .module .module-heading {
+      font-size: 20px;
+      color: #333333;
+      text-transform: uppercase;
+      margin: 10px 0;
+    }
+
+    .modules-list .module .module-text {
+      font-size: 15px;
+      color: #585858;
+      margin: 10px 0;
+      text-align: justify;
+    }
+    </style>
+</head>
+<body>
+<body>
+  <main>
+    <div class="front-img-module">
+      <h1>Resource Manage Group</h1>
+    </div>
+    
+
+    
+    <div class="modules-list">
+      <table>
+      <td>
+      <div class="module">
+        <i class="fas fa-atom"></i>
+        <p class="module-heading">Project Manager</p>
+        <a class="nav-link text-dark" asp-area="" asp-controller="Manager" asp-action="LoginM">!!!Login Here</a>
+        <p class="module-text">Project Manager responsible for Adding and Updating the project. Assign employees from bench to Project. Manage peoples in the Project</p>
+      </div></td>
+      <td>
+        
+      <div class="module">
+        <i class="fas fa-skiing"></i>
+        <p class="module-heading">HR Manager</p>
+        <a class="nav-link text-dark" asp-area="" asp-controller="Recruiter" asp-action="LoginR">!!!Login Here</a>
+        <p class="module-text">HR Manager can recruit people assign Domain, assign Project, Remove Candidate. Approve/Decline Vacation Request from Employee</p>
+      </div></td>
+      <td>
+      <div class="module">
+        <i class="fas fa-ethernet"></i>
+        <p class="module-heading">Employee</p>
+        <a class="nav-link text-dark" asp-area="" asp-controller="Employee" asp-action="LoginE">!!!Login Here</a>
+        <p class="module-text">Employee can view their personal details. Employees can check their status in the firm. Employees can request for Vacation for certain period </p>
+      </div></td>
+      </table>
+    </div>
+  </main>
+</body>
+    </div>
+    <footer >
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid" >
+                <p>© Copyrights 2023 ResourceManageGroup</p>
+            </div>
+        </nav>
+    </footer>
+</body>
+</html>

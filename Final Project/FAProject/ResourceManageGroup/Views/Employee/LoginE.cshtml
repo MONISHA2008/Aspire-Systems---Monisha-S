@@ -1,0 +1,208 @@
+@model ResourceManageGroup.Models.Employee
+
+@{
+    ViewData["Title"] = "Login-Employee";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewData["Title"] - Resource Manage Group</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/sample.styles.css" asp-append-version="true" />
+ <style>
+        img {
+        width: 33px;
+        height: 33px;
+        }
+    </style>
+</head>
+<body>
+    <header style="text-align: center;">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                     <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Manager" asp-action="LoginM">Project Manager</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Recruiter" asp-action="LoginR">HR employee</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Employee" asp-action="LoginE">Employee</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="collapse navbar-collapse d-sm-inline-flex justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Employee" asp-action="RegisterE">Register - Employee</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <br>
+    <div class="container">
+			
+		      	<h4 class="text-center mb-4">L O G I N - E M P L O Y E E</h4>
+				<form method="post">
+                    @if ( @ViewBag.email!=null && @ViewBag.password!=null )
+                    {
+                        <label asp-for="EmployeeEmail">Enter your E-Mail </label>
+                        <div class="form-group">
+                            <input asp-for="EmployeeEmail" value="@ViewBag.email" type="email" class="form-control" id="Email"   required >
+                        </div>
+                        
+                        <label asp-for="EmployeePassword" >Enter your Password </label>
+                        <div class="form-group">
+                            <input asp-for="EmployeePassword" value="@ViewBag.password" type="password" class="form-control" id="Password"  required>
+                        </div>
+                    }
+                    @if ( @ViewBag.email==null && @ViewBag.password==null )
+                    {
+                        <label asp-for="EmployeeEmail" >Enter your E-Mail </label>
+                        <div class="form-group">
+                            <input asp-for="EmployeeEmail"  type="email" class="form-control" id="Email"  required >
+                        </div>
+                        
+                        <label asp-for="EmployeePassword" >Enter your Password </label>
+                        <div class="form-group">
+                            <input asp-for="EmployeePassword"  type="password" class="form-control" id="Password" required>
+                        </div>
+                    }
+                    <div class="form-group d-md-flex justify-content-end">
+                        <a class="nav-link text-dark" asp-controller="Employee" asp-action="forgotPasswordE">Forgot Password?</a>			
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary rounded submit p-2 px-3">Sign In</button>
+                    </div> 
+                    <h6><span asp-validation-for="EmployeeEmail" class="text-center mb-4"></span></h6>
+                    <h6><span asp-validation-for="EmployeePassword" class="text-center mb-4"></span></h6>
+                    <h6>@ViewBag.Message</h6>
+                    
+	            </form>
+	</div>
+    <footer>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <p align="center">© Copyrights 2023 Resource Manage Group</p>
+            </div>
+        </nav>
+    </footer>
+</body>
+</html>
+<style>
+    body{
+        background: linear-gradient(to right,rgba(78,30,83,0.5));
+    }
+		.container {
+			margin: 50px auto;
+			max-width: 400px;
+			padding: 20px;
+			border: 1px solid #ccc;
+			border-radius: 5px;
+			background-color: #f9f9f9;
+		}
+
+		.container h4 {
+			text-align: center;
+			margin-bottom: 20px;
+		}
+        .container h6 {
+			text-align: justify;
+			margin-bottom: 20px;
+		}
+
+		.form-group {
+			margin-bottom: 20px;
+            text-align: center;
+		}
+
+		.form-group label {
+			display: block;
+			font-weight: bold;
+		}
+
+		.form-control {
+			width: 100%;
+			padding: 10px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+		}
+
+		.form-group.d-flex {
+			justify-content: space-between;
+		}
+
+		.form-group.d-md-flex.justify-content-end {
+			margin-top: -10px;
+		}
+
+		.nav-link {
+			color: #000;
+			text-decoration: none;
+		}
+
+		.btn {
+			display: inline-block;
+			padding: 10px 20px;
+			border-radius: 4px;
+			border: none;
+			background-color: #b834c4;
+			color: #fff;
+			text-align: center;
+			text-decoration: none;
+			font-size: 16px;
+			cursor: pointer;
+		}
+
+		.btn:hover {
+			background-color: #b834c4;
+		}
+
+		.text-danger {
+			color: red;
+		}
+
+		.text-center {
+			text-align: center;
+		}
+
+        html, body, #container {
+            height:100%;
+            width:100%;
+            margin:0;
+            padding:0;
+        }
+        #container {
+            overflow:hidden;
+            position:relative;
+        }
+        #hideMe {
+            -webkit-animation: cssAnimation 10s forwards; 
+            animation: cssAnimation 10s forwards;
+        }
+        @@keyframes cssAnimation {
+            0%   {opacity: 1;}
+            90%  {opacity: 1;}
+            100% {opacity: 0;}
+        }
+        @@-webkit-keyframes cssAnimation {
+            0%   {opacity: 1;}
+            90%  {opacity: 1;}
+            100% {opacity: 0;}
+        }
+</style>

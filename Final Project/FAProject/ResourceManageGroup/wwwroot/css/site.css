@@ -1,0 +1,68 @@
+html {
+  font-size: 20px;
+  font-size: large;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0rem white, 0 0 0 0rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 0%;
+}
+
+.btn-primary {
+  color: white;
+  background-color:  #b834c4;
+  border-color: #b834c4;
+}
+
+.display-4 {
+  color:#b834c4;
+  font-family: 'Times New Roman', Times, serif;
+  font: weight 500px;
+}
+.Information{
+  color: black;
+  font-size: large;
+  font-family: 'Times New Roman', Times, serif;
+  text-align: justify;
+  text-align-last: right;
+}
+.content{
+  text-align: justify;
+  text-decoration: blue;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  background-color: rgb(238, 192, 238);
+  height: 50px;
+  width: 100%; 
+}
+header {
+  position: fixed;
+  top: 0;
+  height: 50px;
+  width: 100%;
+  background-color: rgb(238, 192, 238);
+}
+header a{
+  color: #fff;
+}
+body {
+  padding-bottom: 50px; 
+  padding-top: 50px;
+}
